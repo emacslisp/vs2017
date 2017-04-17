@@ -24,6 +24,9 @@ namespace RestfulWebApi.Controllers
         // POST api/values
         public void Post([FromBody]string value)
         {
+            System.Diagnostics.Trace.WriteLine(value);
+
+            // Save to Entity
         }
 
         // PUT api/values/5
