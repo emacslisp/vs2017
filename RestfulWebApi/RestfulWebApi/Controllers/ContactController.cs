@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace RestfulWebApi.Controllers
+{
+    public class ContactController : Controller
+    {
+        public string[] Get()
+        {
+            return new string[]
+            {
+        "Hello",
+        "World"
+            };
+        }
+
+        // GET: Contact
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
