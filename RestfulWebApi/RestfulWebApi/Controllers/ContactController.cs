@@ -11,8 +11,27 @@ namespace RestfulWebApi.Controllers
 {
     public class ContactController : ApiController
     {
+        private const string CacheKey = "ContactStore";
+
         public Contact[] Get()
         {
+            //@todo: add cache for restful api
+            var ctx = HttpContext.Current;
+
+            if (ctx != null)
+            {
+                return (Contact[])ctx.Cache[CacheKey];
+            }
+
+            return new Contact[]
+                {
+            new Contact
+            {
+                Id = 0,
+                Name = "Placeholder"
+            }
+                };
+
             Contact[] c =  new Contact[]
             {
                 new Contact
