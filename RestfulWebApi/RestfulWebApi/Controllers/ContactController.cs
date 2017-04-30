@@ -18,19 +18,10 @@ namespace RestfulWebApi.Controllers
             //@todo: add cache for restful api
             var ctx = HttpContext.Current;
 
-            if (ctx != null)
+            if (ctx != null && ctx.Cache[CacheKey] != null)
             {
                 return (Contact[])ctx.Cache[CacheKey];
             }
-
-            return new Contact[]
-                {
-            new Contact
-            {
-                Id = 0,
-                Name = "Placeholder"
-            }
-                };
 
             Contact[] c =  new Contact[]
             {
